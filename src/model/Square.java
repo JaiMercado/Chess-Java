@@ -25,4 +25,8 @@ public class Square {
         return "" + file + rank;
     }
 
+    @Override
+    public String toString() {
+        return toAlgebraic();
+    }
 }
