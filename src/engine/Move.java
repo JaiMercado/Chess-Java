@@ -36,4 +36,9 @@ public class Move {
     public Piece getCapturedPiece(){ return capturedPiece; }
     public MoveType getMoveType(){ return type; }
     public PieceType getPromotionType(){ return promotionType; }
+
+    public boolean isCapture(){
+        return type == MoveType.CAPTURE || type == MoveType.EN_PASSANT;
+    }
+
 }
