@@ -5,4 +5,9 @@ public class Pawn extends Piece{
         super(color, PieceType.PAWN);
     }
 
+    @Override
+    public String getSymbol() {
+        return color == Color.WHITE ? "P" : "p";
+    }
+
 }
