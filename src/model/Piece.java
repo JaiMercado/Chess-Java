@@ -10,4 +10,8 @@ public class Piece {
         this.type     = type;
         this.hasMoved = false;
     }
+
+    public Color getColor(){ return color; }
+    public PieceType getType(){ return type; }
+    public boolean hasMoved(){ return hasMoved; }
 }
