@@ -14,4 +14,8 @@ public class Move {
     private final MoveType type;
     private final PieceType promotionType; // null unless PROMOTION
 
+    // Constructor for normal moves
+    public Move(Square from, Square to, Piece piece, Piece capturedPiece, MoveType type) {
+        this(from, to, piece, capturedPiece, type, null);
+    }
 }
