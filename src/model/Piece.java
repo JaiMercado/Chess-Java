@@ -1,5 +1,10 @@
 package model;
 
+import engine.Board;
+import engine.Move;
+
+import java.util.List;
+
 public abstract class Piece {
     protected Color     color;
     protected PieceType type;
