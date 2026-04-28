@@ -14,4 +14,9 @@ public class Piece {
     public Color getColor(){ return color; }
     public PieceType getType(){ return type; }
     public boolean hasMoved(){ return hasMoved; }
+
+    public void setMoved() {
+        this.hasMoved = true;
+    }
+
 }
