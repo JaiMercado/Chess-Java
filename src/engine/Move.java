@@ -29,4 +29,11 @@ public class Move {
         this.type = type;
         this.promotionType = promotionType;
     }
+
+    public Square getFrom(){ return from; }
+    public Square getTo(){ return to; }
+    public Piece getPiece(){ return piece; }
+    public Piece getCapturedPiece(){ return capturedPiece; }
+    public MoveType getMoveType(){ return type; }
+    public PieceType getPromotionType(){ return promotionType; }
 }
