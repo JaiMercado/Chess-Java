@@ -46,4 +46,37 @@ public class Board {
     public void clearEnPassantTarget(){ this.enPassantTarget = null; }
 
 
+    // Moves a piece from one square to another based on move type.
+    // Only NORMAL, CAPTURE, and PROMOTION are relevant for the pawn demo.
+    public void applyMove(Move move) {
+        Square from  = move.getFrom();
+        Square to = move.getTo();
+        Piece piece = move.getPiece();
+        clearEnPassantTarget();
+
+        switch (move.getMoveType()) {
+
+            case NORMAL:
+            case CAPTURE:
+                to.setPiece(piece);
+                from.clearPiece();
+                piece.setMoved();
+                break;
+
+            case PROMOTION:
+                // Piece replacement is handled by GameController after prompting the player
+                // board just clears the source.
+                to.setPiece(piece);
+                from.clearPiece();
+                piece.setMoved();
+                break;
+
+            // EN_PASSANT, CASTLE_KINGSIDE, CASTLE_QUEENSIDE
+            // are no-ops until the full piece set is added.
+            default:
+                break;
+        }
+    }
+
+
 }
