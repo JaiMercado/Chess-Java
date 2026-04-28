@@ -19,4 +19,10 @@ public class Square {
     public void setPiece(Piece piece) { this.piece = piece; }
     public void clearPiece()          { this.piece = null; }
 
+    public String toAlgebraic() {
+        char file = (char) ('a' + col);
+        int  rank = row + 1;
+        return "" + file + rank;
+    }
+
 }
