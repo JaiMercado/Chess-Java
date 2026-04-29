@@ -56,4 +56,20 @@ public class MoveValidator {
         return getAllLegalMoves(color).isEmpty();
     }
 
+    //Mo returns every legal move available to the given color across all their pieces
+    private List<Move> getAllLegalMoves(Color color) {
+        List<Move> allMoves = new ArrayList<>();
+        Board board = gameState.getBoard();
+
+        for (int row = 0; row < Board.SIZE; row++) {
+            for (int col = 0; col < Board.SIZE; col++) {
+                Square sq = board.getSquare(row, col);
+                if (sq.isOccupied() && sq.getPiece().getColor() == color) {
+                    allMoves.addAll(getLegalMoves(sq));
+                }
+            }
+        }
+
+        return allMoves;
+    }
 }
