@@ -47,6 +47,21 @@ public class Pawn extends Piece{
             }
         }
 
+        int[] sideways = {-1, 1};
+
+        for (int colOffset : sideways) {
+            int diagCol = currentCol + colOffset;
+
+            if (!board.isInBounds(oneStepRow, diagCol)) continue;
+
+            Square diagonal = board.getSquare(oneStepRow, diagCol);
+
+            // There must be an enemy piece on the diagonal square to capture
+            if (diagonal.isOccupied() && diagonal.getPiece().getColor() != this.color) {
+                moves.add(new Move(from, diagonal, this, diagonal.getPiece(), MoveType.CAPTURE));
+            }
+        }
+
         return moves;
     }
 
