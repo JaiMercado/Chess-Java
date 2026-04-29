@@ -22,4 +22,10 @@ public class GameState {
         this.halfMoveClock = 0;
         this.fullMoveNumber = 1;
     }
+
+    public Board getBoard(){ return board; }
+    public Color getCurrentTurn(){ return currentTurn; }
+    public GameStatus getStatus(){ return status; }
+    public int getHalfMoveClock(){ return halfMoveClock; }
+    public int getFullMoveNumber(){ return fullMoveNumber; }
 }
