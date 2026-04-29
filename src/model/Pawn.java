@@ -21,6 +21,16 @@ public class Pawn extends Piece{
         int startingRow   = (color == Color.WHITE) ? 1 : 6;
         int promotionRow  = (color == Color.WHITE) ? 7 : 0;
 
+        int oneStepRow = currentRow + moveDirection;
+
+        if (board.isInBounds(oneStepRow, currentCol)) {
+            Square oneStep = board.getSquare(oneStepRow, currentCol);
+
+            if (!oneStep.isOccupied()) {
+                moves.add(new Move(from, oneStep, this, null, MoveType.NORMAL));
+            }
+        }
+
         return moves;
     }
 
