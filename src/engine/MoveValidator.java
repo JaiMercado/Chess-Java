@@ -49,4 +49,11 @@ public class MoveValidator {
         }
         return false;
     }
+
+    // Returns true if the current player has no legal moves.
+    // Without a king, stalemate occurs if all pawns are blocked.
+    public boolean isStalemate(Color color) {
+        return getAllLegalMoves(color).isEmpty();
+    }
+
 }
