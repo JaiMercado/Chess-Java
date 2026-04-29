@@ -43,7 +43,6 @@ public class Pawn extends Piece{
                     moves.add(new Move(from, oneStep, this, null, MoveType.NORMAL));
                 }
 
-
                 if (currentRow == startingRow) {
                     int twoStepRow = currentRow + 2 * moveDirection;
                     Square twoStep = board.getSquare(twoStepRow, currentCol);
@@ -65,7 +64,14 @@ public class Pawn extends Piece{
 
             // There must be an enemy piece on the diagonal square to capture
             if (diagonal.isOccupied() && diagonal.getPiece().getColor() != this.color) {
-                moves.add(new Move(from, diagonal, this, diagonal.getPiece(), MoveType.CAPTURE));
+                if (oneStepRow == promotionRow) {
+                    moves.add(new Move(from, diagonal, this, diagonal.getPiece(), MoveType.PROMOTION, PieceType.QUEEN));
+                    moves.add(new Move(from, diagonal, this, diagonal.getPiece(), MoveType.PROMOTION, PieceType.ROOK));
+                    moves.add(new Move(from, diagonal, this, diagonal.getPiece(), MoveType.PROMOTION, PieceType.BISHOP));
+                    moves.add(new Move(from, diagonal, this, diagonal.getPiece(), MoveType.PROMOTION, PieceType.KNIGHT));
+                } else {
+                    moves.add(new Move(from, diagonal, this, diagonal.getPiece(), MoveType.CAPTURE));
+                }
             }
         }
 
