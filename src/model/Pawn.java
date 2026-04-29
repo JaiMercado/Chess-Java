@@ -10,4 +10,14 @@ public class Pawn extends Piece{
         return color == Color.WHITE ? "P" : "p";
     }
 
+    @Override
+    public List<Move> getPseudoLegalMoves(Board board, Square from) {
+        List<Move> moves = new ArrayList<>();
+
+        int currentRow = from.getRow();
+        int currentCol = from.getCol();
+
+        return moves;
+    }
+
 }
