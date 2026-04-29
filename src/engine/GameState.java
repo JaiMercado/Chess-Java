@@ -28,4 +28,9 @@ public class GameState {
     public GameStatus getStatus(){ return status; }
     public int getHalfMoveClock(){ return halfMoveClock; }
     public int getFullMoveNumber(){ return fullMoveNumber; }
+
+    public List<Move> getMoveHistory(){
+        return Collections.unmodifiableList(moveHistory);
+    }
+
 }
