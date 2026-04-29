@@ -19,4 +19,20 @@ public class MoveValidator {
         this.gameState = gameState;
     }
 
+    public List<Move> getLegalMoves(Square square) {
+        List<Move> legalMoves = new ArrayList<>();
+
+        if (!square.isOccupied()) return legalMoves;
+
+        Piece piece = square.getPiece();
+        Board board = gameState.getBoard();
+
+        // Get all moves the piece can make based on movement rules
+        List<Move> pseudoLegal = piece.getPseudoLegalMoves(board, square);
+
+        // For now, every pseudo-legal move is accepted directly
+        legalMoves.addAll(pseudoLegal);
+
+        return legalMoves;
+    }
 }
