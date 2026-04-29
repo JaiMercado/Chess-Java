@@ -60,5 +60,9 @@ public class GameState {
         currentTurn = currentTurn.opposite();
     }
 
+    // Returns true if the game can still be played
+    public boolean isOngoing() {
+        return status == GameStatus.ONGOING || status == GameStatus.CHECK;
+    }
 
 }
